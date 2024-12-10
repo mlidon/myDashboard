@@ -7,22 +7,14 @@
   <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" class="example-nav">
       <mat-nav-list>
-        <ul>
-          <li>Dashboard</li>
-          <li>Components</li>
-          <li>Otro</li>
-        </ul>
+        <picture-user></picture-user>
+        <menu-side-nav></menu-side-nav>
       </mat-nav-list>
     </mat-sidenav>
 
-    <mat-sidenav-content style="background-color: #cfcfcf;">
-      <div style="background-color: white;" class="mx-3 mt-3 p-5">
-        <h3>HOLA</h3>
-        <p>
-           Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur eius mollitia laudantium delectus explicabo enim ullam repudiandae ipsa ex illo rem dolor ratione, neque harum cumque perferendis illum suscipit expedita.
-         </p>
-      </div>
-      </mat-sidenav-content>
+    <mat-sidenav-content class="bg-dashboard">
+      <ng-content #contenido></ng-content>
+    </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
 

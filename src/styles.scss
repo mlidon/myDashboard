@@ -1,4 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.card-component{
+  padding: 12px 25px;
+  height: auto;
+  margin:10px 15px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+

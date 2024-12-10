@@ -1,0 +1,17 @@
+:host {
+  /* display: block; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.5rem;
+}
+
+.user-picture{
+  background-image: url(../../../../public/img/yo.jpg);
+  background-size: cover;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  // border:0.1rem solid rgb(99, 99, 99);
+}

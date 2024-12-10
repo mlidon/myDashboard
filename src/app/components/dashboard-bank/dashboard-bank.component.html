@@ -1,0 +1,55 @@
+<div class="card-component">
+  <p>dashboard-bank works!</p>
+</div>
+<div class="row">
+<!-- 4 tarjetas  -->
+ @for(item of infoCards; track item.title){
+  <div class="card-component col " >
+    <card-info-bank [infoCards]="item"></card-info-bank>
+  </div>
+ }
+
+
+<!--
+  <div class="card-component col " >
+    <header>
+      <p>Title</p>
+    </header>
+    <div class="d-flex flex-row row">
+      <p class="col">Number</p>
+      <p class="col">Grafic</p>
+    </div>
+    <footer class="d-flex flex-row row">
+      <p> icono <span>6%</span> increase in today sales</p>
+    </footer>
+  </div>
+
+  <div class="card-component col " >
+    <header>
+      <p>Title</p>
+    </header>
+    <div class="d-flex flex-row row">
+      <p class="col">Number</p>
+      <p class="col">Grafic</p>
+    </div>
+    <footer class="d-flex flex-row row">
+      <p> icono <span>6%</span> increase in today sales</p>
+    </footer>
+  </div>
+
+  <div class="card-component col " >
+    <header>
+      <p>Title</p>
+    </header>
+    <div class="d-flex flex-row row">
+      <p class="col">Number</p>
+      <p class="col">Grafic</p>
+    </div>
+    <footer class="d-flex flex-row row">
+      <p> icono <span>6%</span> increase in today sales</p>
+    </footer>
+  </div> -->
+
+</div>
+
+

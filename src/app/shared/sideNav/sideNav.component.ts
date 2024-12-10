@@ -5,12 +5,23 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
+import { MenuSideNavComponent } from "../menuSideNav/menuSideNav.component";
+import { PictureUserComponent } from '../pictureUser/pictureUser.component';
+
 
 @Component({
   selector: 'side-nav',
-  imports: [MatSidenavModule, MatButtonModule, MatListModule, MatToolbarModule,MatIconModule],
+  imports: [
+    MatSidenavModule,
+    MatButtonModule,
+    MatListModule,
+    MatToolbarModule,
+    MatIconModule,
+    MenuSideNavComponent,
+    PictureUserComponent,
+  ],
   templateUrl: './sideNav.component.html',
-  styleUrl: './sideNav.component.css',
+  styleUrl: './sideNav.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SideNavComponent {
