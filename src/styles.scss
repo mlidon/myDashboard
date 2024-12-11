@@ -5,7 +5,7 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .card-component{
-  padding: 12px 25px;
+  padding: 12px;
   height: auto;
   margin:10px 15px;
   background-color: white;
@@ -14,3 +14,21 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 
+.bgGreen{
+  background-color: rgb(24, 120, 36)!important;
+  color:black;
+}
+
+.bgRed{
+  background-color: rgb(255, 80, 80)!important;
+}
+
+.bgBlue
+{
+  background-color: cornflowerblue!Important;
+}
+
+.bgOrange
+{
+  background-color: rgb(237, 198, 100)!Important;
+}

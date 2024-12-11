@@ -1,0 +1,29 @@
+@use '@angular/material' as mat;
+:host {
+  display: block;
+  padding: 20px;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}
+
+.mat-mdc-unelevated-button, .mat-mdc-unelevated-button .mdc-button__ripple {
+  border-radius: 12px!important;
+
+}
+
+.table-pagination{
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+

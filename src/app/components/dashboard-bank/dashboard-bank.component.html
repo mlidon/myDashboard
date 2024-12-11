@@ -1,55 +1,29 @@
-<div class="card-component">
+<div class="container-fluid">
   <p>dashboard-bank works!</p>
+
+  <!-- INFORMATION CARDS -->
+  <div class="row container-fluid">
+    @for(card of infoCards; track $index){
+      <div class="card-component col-12 col-sm col-md col-lg" >
+        <card-info-bank [infoCards]="card"></card-info-bank>
+      </div>
+    }
+  </div>
+  <!-- GRAFICS -->
+  <div class="row container-fluid">
+    <!-- GRAFIC CHART -->
+    <div class="card-component col-12 col-sm col-md-8 col-lg-8 " >
+      <grafic-chard-bank></grafic-chard-bank>
+    </div>
+
+    <!-- GRAFIC CHART DONUT -->
+    <div class="card-component col-12 col-sm col-md-3 col-lg">
+      <grafic-donut-bank></grafic-donut-bank>
+    </div>
+  </div>
+
+  <!-- TABLA BASIC BANC -->
+  <div class="card-component p-3">
+    <table-basic-bank></table-basic-bank>
+  </div>
 </div>
-<div class="row">
-<!-- 4 tarjetas  -->
- @for(item of infoCards; track item.title){
-  <div class="card-component col " >
-    <card-info-bank [infoCards]="item"></card-info-bank>
-  </div>
- }
-
-
-<!--
-  <div class="card-component col " >
-    <header>
-      <p>Title</p>
-    </header>
-    <div class="d-flex flex-row row">
-      <p class="col">Number</p>
-      <p class="col">Grafic</p>
-    </div>
-    <footer class="d-flex flex-row row">
-      <p> icono <span>6%</span> increase in today sales</p>
-    </footer>
-  </div>
-
-  <div class="card-component col " >
-    <header>
-      <p>Title</p>
-    </header>
-    <div class="d-flex flex-row row">
-      <p class="col">Number</p>
-      <p class="col">Grafic</p>
-    </div>
-    <footer class="d-flex flex-row row">
-      <p> icono <span>6%</span> increase in today sales</p>
-    </footer>
-  </div>
-
-  <div class="card-component col " >
-    <header>
-      <p>Title</p>
-    </header>
-    <div class="d-flex flex-row row">
-      <p class="col">Number</p>
-      <p class="col">Grafic</p>
-    </div>
-    <footer class="d-flex flex-row row">
-      <p> icono <span>6%</span> increase in today sales</p>
-    </footer>
-  </div> -->
-
-</div>
-
-

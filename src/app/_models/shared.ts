@@ -23,3 +23,16 @@ export class InfoBank{
   }
 }
 
+export class TableTransactionsBank{
+  Id?:                number;
+  name?:              string;
+  action?:            string;
+  account?:           string;
+  amount?:            string;
+  dateTransacciont?:  Date;
+  stateColor?:        string;
+
+  constructor(values: Object = {}) {
+    (<any>Object).assign(this, values);
+  }
+}
