@@ -1,0 +1,21 @@
+:host {
+  display: block;
+}
+
+
+.box{
+  //width: 100%;
+  width: 350px;
+  min-height: 300px;
+  background-color: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 1px 1px 5px black;
+}
+
+.btn-new-list{
+  width: 100%;
+  max-width: 150px;
+  max-height: 55px;
+
+}

@@ -1,9 +1,4 @@
-@use '@angular/material' as mat;
 :host {
   display: block;
-}
-
-.mat-mdc-unelevated-button, .mat-mdc-unelevated-button .mdc-button__ripple {
-  border-radius: 12px!important;
 }
 

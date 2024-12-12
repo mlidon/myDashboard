@@ -1,4 +1,4 @@
-<h4>Transactions</h4>
+<p class="title-dashboard">TRANSACTIONS</p>
 <div class="d-flex justify-content-end">
   <mat-form-field appearance="outline" style="width:25%">
     <mat-label>Filter</mat-label>
@@ -27,7 +27,7 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
       <td mat-cell *matCellDef="let row">
         @if(row.action == "payment"){
-          <button mat-flat-button class="bgGreen">
+          <button mat-flat-button class="bgRed">
             {{row.action}}
           </button>
         }@else if (row.action == "transfer") {
@@ -39,7 +39,7 @@
             {{row.action}}
           </button>
         }@else {
-          <button mat-flat-button class="bgRed">
+          <button mat-flat-button class="bgGreen">
             {{row.action}}
           </button>
         }

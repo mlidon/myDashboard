@@ -4,6 +4,11 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.title-dashboard{
+  font-size: 1.1rem;
+  color: black;
+}
+
 .card-component{
   padding: 12px;
   height: auto;
@@ -13,6 +18,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
 }
 
+.pointer{
+  cursor: pointer;
+}
 
 .bgGreen{
   background-color: rgb(24, 120, 36)!important;
@@ -20,15 +28,18 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .bgRed{
-  background-color: rgb(255, 80, 80)!important;
+  background-color: rgb(168, 44, 44)!important;
 }
 
 .bgBlue
 {
-  background-color: cornflowerblue!Important;
+  background-color: rgb(64, 94, 149)!Important;
 }
 
 .bgOrange
 {
   background-color: rgb(237, 198, 100)!Important;
+}
+.mat-mdc-unelevated-button, .mat-mdc-unelevated-button .mdc-button__ripple {
+  border-radius: 6px!important;
 }

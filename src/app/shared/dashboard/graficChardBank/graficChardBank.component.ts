@@ -25,7 +25,14 @@ export type ChartOptions = {
 })
 export class GraficChardBankComponent {
   @ViewChild("chart") chart?: ChartComponent;
-  public chartOptions: Partial<ChartOptions>;
+
+
+  handleWheel = (event: WheelEvent) => {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+
+  chartOptions: Partial<ChartOptions>;
 
   constructor() {
     this.chartOptions = {
@@ -43,7 +50,13 @@ export class GraficChardBankComponent {
           data: [87, 57, 74, 99, 75, 38, 62, 47, 82, 56, 45, 47]
         }
       ],
-      chart: { height: 350, type: "line"},
+      chart: {
+        height: 350,
+        type: "line",
+        zoom: {
+          enabled: false // Deshabilita completamente el zoom
+        }
+      },
       dataLabels: { enabled: false },
       stroke: {
         width: 5,

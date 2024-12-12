@@ -1,9 +1,9 @@
-<cdk-accordion class="example-accordion">
+<cdk-accordion>
   @for (item of items; track item; let index = $index) {
 
-  <cdk-accordion-item #accordionItem="cdkAccordionItem" class="example-accordion-item">
+  <cdk-accordion-item #accordionItem="cdkAccordionItem">
     <button
-      class="example-accordion-item-header"
+      class="navigation-item-header"
       (click)="accordionItem.toggle()"
       tabindex="0"
       [attr.id]="'accordion-header-' + index"
@@ -17,14 +17,14 @@
     </button>
 
     @if(accordionItem.expanded) {
-    <div class="example-accordion-item-body" role="region"
+    <div class="navigation-item-body" role="region"
       [style.display]="accordionItem.expanded ? '' : 'none'"
       [attr.id]="'accordion-body-' + index"
       [attr.aria-labelledby]="'accordion-header-' + index"
     >
-      <cdk-accordion class="example-accordion">
+      <cdk-accordion class="navigation">
         @for (children of item.children; track children; let index = $index) {
-          <nav class="example-accordion-item-children">
+          <nav [class]="currentPath()===children.url ? 'active':'navigation-item-children'">
             <a [routerLink]="children.url" class="link-menu">
               <mat-icon class="me-2">{{children.icon}}</mat-icon>
               {{children.name}}
