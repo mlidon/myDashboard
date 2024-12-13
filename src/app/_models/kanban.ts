@@ -1,7 +1,7 @@
 export class ColumnKanban{
-  index?:           number;
-  titleColumn?:     string;
-  card?:            CardKanban[];
+  id?:                number;
+  titleColumn?:       string;
+  card?:              CardKanban[];
 
   constructor(values: Object = {}) {
     (<any>Object).assign(this, values);
@@ -10,6 +10,7 @@ export class ColumnKanban{
 
 
 export class CardKanban{
+  id?:                number;
   titleCard?:         string;
   description?:       string;
   startDate?:         string;

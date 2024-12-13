@@ -1,0 +1,33 @@
+
+<div cdkDropList (cdkDropListDropped)="drop($event)" class="my-3 drag">
+  @for (card of arrayCard; track card) {
+    <div [cdkDragData]="arrayCard" cdkDrag>
+      <div class="edit-card my-2 d-flex justify-content-between align-content-center">
+
+        <header class="row w-100 p-2">
+          <p class="col-10 mt-2">{{card.titleCard}}</p>
+          <!-- MENU ... -->
+          <button mat-icon-button [matMenuTriggerFor]="menu" class="col-1">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu" class="p-1">
+            <p class="text-center">List actions</p>
+            <hr>
+            <button mat-menu-item (click)="openDialog()">
+              <span>Edit card</span>
+              <mat-icon>edit_note</mat-icon>
+            </button>
+            <button mat-menu-item (click)="removeCard(card.id!)">
+              <span>Remove card</span>
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-menu>
+        </header>
+
+      </div>
+    </div>
+  }
+</div>
+<div class="sticky-bottom d-flex justify-content-center align-content-center pt-3 bg-white">
+  <button mat-flat-button (click)="addNewCard( newData()?.id!, newData()?.titleColumn!)" class="btn-new-card">+ New Card</button>
+</div>

@@ -2,33 +2,21 @@
   display: block;
 }
 .box{
-  //width: 100%;
   width: 350px;
-  min-height: 300px;
+  min-height: 150px;
+  max-height: 800px;
   background-color: white;
   border-radius: 15px;
-  padding: 20px;
+  padding: 20px 10px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
 }
 
-.edit-card{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 260px;
-  height:90px;
-  border-radius: 6px;
-  border: rgba(128, 128, 128, 0.5) 1px solid;
-  background-color: rgb(255, 255, 255);
+.scroll-container {
+  width: 325px;
+  max-height: 650px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
-.edit-card:hover{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 260px;
-  height:90px;
-  border-radius: 6px;
-  border: rgba(128, 128, 128, 0.5) 1px solid;
-  background-color: rgba(0, 0, 0, 0.03);
-}
+

@@ -1,21 +1,22 @@
 <p>kanban works!</p>
 <div class="mx-3">
-<!--   [cdkDropListSortPredicate]="sortPredicate" -->
   <div cdkDropList cdkDropListOrientation="horizontal"
       (cdkDropListDropped)="drop($event)"
        class="d-flex align-content-end justify">
-    @for (column of newColumn; track column) {
-      <div class="me-3" [cdkDragData]="newColumn" cdkDrag>
+    @for (column of arrayColumn; track column) {
+      <div class="me-3" [cdkDragData]="arrayColumn" cdkDrag>
         <new-kanban-column [dataColumnKanaban]="column"
                            (deleteColumnKanaban)="removeKanabanColumn($event)"
                            (updateColumnKanaban)="updateKanabanColumn($event)"
-        ></new-kanban-column>
+        >
+      </new-kanban-column>
       </div>
     }
-    @if(newColumn.length<5){
+    @if(arrayColumn.length<5){
       <button mat-flat-button class="btn-new-list" (click)="addNewKanabanColumn()" >+New List</button>
     }
   </div>
-<br>
 
 </div>
+
+
