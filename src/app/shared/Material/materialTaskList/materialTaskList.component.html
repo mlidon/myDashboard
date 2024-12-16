@@ -1,0 +1,28 @@
+<!-- INPUT ADD TASK -->
+<mat-form-field appearance="outline">
+  <mat-label>{{titleLabel()}}</mat-label>
+  <input matInput type="text" [(ngModel)]="task">
+  @if (task) {
+    <button matSuffix mat-icon-button aria-label="Clear" (click)="addListTask(task)">
+      <mat-icon>check</mat-icon>
+    </button>
+  }
+</mat-form-field>
+
+<!-- LIST TASKS -->
+@if(listTasks.length>0){
+  <mat-card appearance="outlined" class="card-task">
+    <mat-card-content>
+      @for(element of listTasks; track element;let i=$index){
+        <div class="d-flex justify-content-between align-content-center">
+          <mat-checkbox [checked]="element.completed" (change)="updateElementListTask($event, i)" >
+            <span [ngClass]="{'strikethrough':element.completed, 'none-strikethrough':!element.completed}">{{element.name}}</span>
+          </mat-checkbox>
+          <button mat-icon-button type="button" [disabled]="element.completed" (click)="deleteElementListTask(element.name!,i)" >
+            <mat-icon [ngClass]="{'iconGey':element.completed, 'iconRed':!element.completed}">delete</mat-icon>
+          </button>
+        </div>
+      }
+    </mat-card-content>
+  </mat-card>
+}

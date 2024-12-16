@@ -1,6 +1,6 @@
 
 <div cdkDropList (cdkDropListDropped)="drop($event)" class="my-3 drag">
-  @for (card of arrayCard; track card) {
+  @for (card of arrayCard; track card;let i = $index) {
     <div [cdkDragData]="arrayCard" cdkDrag>
       <div class="edit-card my-2 d-flex justify-content-between align-content-center">
 
@@ -23,7 +23,17 @@
             </button>
           </mat-menu>
         </header>
-
+        @if(card.titleCard){
+          <section>
+            {{card.description}}
+          </section>
+          <section>
+            {{card.progress}}
+          </section>
+          <footer>
+            {{card.startDate}}
+          </footer>
+        }
       </div>
     </div>
   }

@@ -59,6 +59,7 @@ export class NewKanbanCardComponent {
     this.dialog.open(EditKanbanCardComponent,{
       position:{right:'0'},
       height:'100%',
+      
       width:'500px',
       panelClass: 'right-dialog',
       enterAnimationDuration:'300ms',

@@ -1,0 +1,7 @@
+<mat-form-field class="w-100" appearance="outline">
+  <mat-label>{{titleLabel()}}</mat-label>
+  <textarea matInput placeholder="Ex. Short description..."
+            [ngModel]="description()"
+            (ngModelChange)="getDescription($event)">
+  </textarea>
+</mat-form-field>

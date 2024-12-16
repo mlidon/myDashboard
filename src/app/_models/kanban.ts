@@ -13,11 +13,11 @@ export class CardKanban{
   id?:                number;
   titleCard?:         string;
   description?:       string;
-  startDate?:         string;
-  endDate?:           string;
+  startDate?:         Date;
+  timerDate?:         Date;
   progress?:          number;
   titleTask?:         string;
-  Assignees?:         worker[];
+  // Assignees?:         worker[];
   Comments?:          string;
 
   constructor(values: Object = {}) {
@@ -28,6 +28,16 @@ export class CardKanban{
 export class worker{
   name?:              string;
   picture?:           string;
+
+  constructor(values: Object = {}) {
+    (<any>Object).assign(this, values);
+  }
+}
+
+
+export class Tasks{
+  name?: string;
+  completed?: boolean;
 
   constructor(values: Object = {}) {
     (<any>Object).assign(this, values);

@@ -1,5 +1,60 @@
-<h2 mat-dialog-title>Dialog with elements</h2>
-<mat-dialog-content>This dialog showcases the title, close, content and actions elements.</mat-dialog-content>
-<mat-dialog-actions>
-  <button mat-button mat-dialog-close>Close</button>
+
+<header class="d-flex justify-content-between align-content-center">
+  <h2 mat-dialog-title>EDIT CARD</h2>
+  <button mat-icon-button mat-dialog-close class="mt-3 me-3 bgBlue">
+    <mat-icon style="color: white;">close</mat-icon>
+  </button>
+</header>
+<hr>
+
+<mat-dialog-content>
+  <!-- Title -->
+  <section>
+    <p>Title</p>
+    <material-input [titleLabel]="titleLabelDescription" [data]="description()" (emitterTitle)="setTitle($event)"></material-input>
+  </section>
+
+  <!-- Description -->
+  <section>
+    <p>Description</p>
+    <material-text-area [titleLabel]="titleLabelDescription" [data]="description()"  (emitterDescription)="setDescription($event)"></material-text-area>
+  </section>
+
+  <!-- DATA START END -->
+  <section>
+    <p>Start Date</p>
+    <material-date-piker  [titleLabel]="titleLabelPickerDate"
+                          [data]="dateSelected()"
+                          (emmiterDatePikerSelected)="setSelectedDate($event)"></material-date-piker>
+    <material-timer-piker [titleLabel]="titleLabelPickerTime"
+                          [data]="timerSelected()"
+                          (emmiterTimePikerSelected)="setSelectedTime($event)">
+    </material-timer-piker>
+  </section>
+
+  <!-- PROGRESS -->
+  <section>
+    <p>Progress</p>
+    <material-progress [percentage]="percentage()"></material-progress>
+  </section>
+
+  <!-- TASK LIST -->
+  <section>
+    <p>Task List</p>
+    <material-task-list [titleLabel]="titleLabelTaskList" (emmitterPercentageTask)="setPercentage($event)" (emmitterTaskList)="setTaskList($event)"></material-task-list>
+  </section>
+
+  <!-- ASIGN USERS -->
+
+  <!-- COMENTARIOS -->
+</mat-dialog-content>
+<hr>
+
+<mat-dialog-actions align="end">
+  <div class="d-flex justify-content-end align-content-center">
+    <button mat-flat-button class="mx-2 bgRed"> Delete <mat-icon>delete</mat-icon></button>
+    <button mat-flat-button (click)="saveComponent()"> Save</button>
+  </div>
 </mat-dialog-actions>
+
+
