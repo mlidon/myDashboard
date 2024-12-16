@@ -56,14 +56,16 @@ export class NewKanbanCardComponent {
 
 
   openDialog() {
-    this.dialog.open(EditKanbanCardComponent,{
+    const dialogRef = this.dialog.open(EditKanbanCardComponent,{
       position:{right:'0'},
       height:'100%',
-      
       width:'500px',
       panelClass: 'right-dialog',
       enterAnimationDuration:'300ms',
       exitAnimationDuration:'300ms'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
     });
   }
 }

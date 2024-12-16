@@ -28,7 +28,7 @@ export class EditKanbanCardComponent implements OnInit{
 
   cardKanban:CardKanban= new CardKanban();
   dataIdCard = input<number>(0);
-  emitterCardEdited = output<CardKanban>();
+  // emitterCardEdited = output<CardKanban>();
 
 
   titleLabelDescription:string = "Description"
@@ -41,6 +41,7 @@ export class EditKanbanCardComponent implements OnInit{
   dateSelected= signal<Date>(new Date());
   timerSelected= signal<Date>(new Date());
   percentage=signal<number>(0);
+  dialogRef: any;
 
 
 
@@ -54,6 +55,13 @@ export class EditKanbanCardComponent implements OnInit{
     this.dateSelected.set(new Date(date));
   }
 
+  accept(){
+    this.dialogRef.close(true);
+  }
+
+  cancel(){
+    this.dialogRef.close(false);
+  }
 
 // FUNCIONES
 setTitle(title:any){
@@ -92,6 +100,7 @@ saveComponent(){
     titleTask:  "" ,
     Comments:   "",
   }
+  //this.dialogRef(this.cardKanban)
   //this.emitterCardEdited.emit(this.cardKanban);
 }
 
@@ -107,13 +116,7 @@ saveComponent(){
   // ){}
 
 
-  // accept(){
-  //   this.dialogRef.close(true);
-  // }
 
-  // cancel(){
-  //   this.dialogRef.close(false);
-  // }
 
 
 
@@ -140,8 +143,5 @@ saveComponent(){
   //   });
   // }
 
-}
-function output<T>() {
-  throw new Error('Function not implemented.');
 }
 
