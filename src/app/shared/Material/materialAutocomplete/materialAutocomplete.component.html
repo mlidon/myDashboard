@@ -1,0 +1,31 @@
+<mat-form-field appearance="outline" class="w-100">
+  <mat-label>Assigns Users</mat-label>
+  <mat-chip-grid #chipGrid aria-label="selection">
+    @for(user of arrayUsers; track user;let i = $index) {
+      <mat-chip-row (removed)="remove(user)" style="height: 60px;">
+        <img [src]="user.img" [alt]="user.name" width="50px" height="50px" class="img-user me-2">{{user.name}}
+        <button matChipRemove [attr.aria-label]="'remove ' + user.name">
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip-row>
+    }
+
+  </mat-chip-grid>
+
+  <input
+      name="currentFruit"
+      placeholder="New Fruit..."
+      #fruitInput
+      [(ngModel)]="currentUser"
+      [matChipInputFor]="chipGrid"
+      [matAutocomplete]="auto"
+      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      (matChipInputTokenEnd)="add($event)"
+    />
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+      @for (user of filteredUsers(); track user) {
+        <mat-option [value]="user.id">{{user.name}}</mat-option>
+      }
+    </mat-autocomplete>
+
+</mat-form-field>

@@ -11,12 +11,14 @@ export class ColumnKanban{
 
 export class CardKanban{
   id?:                number;
+  idColumn?:          number;
   titleCard?:         string;
   description?:       string;
   startDate?:         Date;
-  timerDate?:         Date;
+  startTime?:         Date;
   progress?:          number;
   titleTask?:         string;
+  edited?:            boolean;
   // Assignees?:         worker[];
   Comments?:          string;
 

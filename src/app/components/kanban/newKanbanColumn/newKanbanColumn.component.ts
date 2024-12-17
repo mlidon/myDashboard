@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, input, output, signal } from '@angular/core';
-import {MatIconModule} from '@angular/material/icon';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatButtonModule} from '@angular/material/button';
+import { MatIconModule} from '@angular/material/icon';
+import { MatMenuModule} from '@angular/material/menu';
+import { MatButtonModule} from '@angular/material/button';
 import { CardKanban, ColumnKanban } from '../../../_models/kanban';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
+import { MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule} from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { NewKanbanCardComponent } from '../newKanbanCard/newKanbanCard.component';
 
@@ -30,7 +30,10 @@ export class NewKanbanColumnComponent{
   dataColumnKanaban= input<ColumnKanban>();
   dataCardKanban = input<CardKanban>();
   deleteColumnKanaban = output<number>()
-  updateColumnKanaban = output<ColumnKanban>();
+  emitterUpdateColumnKanaban = output<ColumnKanban>();
+
+
+  // --- DRAG AND DOP --- //
 
 
   // --- CRUD ACCTIONS COLUMN --- //
@@ -40,30 +43,27 @@ export class NewKanbanColumnComponent{
 
   updateColumn(title:string, index?:number, event?:ColumnKanban){
     // Add new data
-    this.newData.update(data=>({
+    this.newData.set({
       titleColumn:title,
       id:this.dataColumnKanaban()!.id,
       card:event?.card
-    }))
-
+    })
 
     // Send newData to Array component father
-    this.updateColumnKanaban.emit(this.newData())
+    this.emitterUpdateColumnKanaban.emit(this.newData())
     this.isTitle.set(false);
   }
 
   updateCardsColumn(event?:ColumnKanban){
-    console.log("Update cards into column",event);
+    //console.log("Update cards into column",event);
 
-    let index = this.dataColumnKanaban()?.id;
-    let title = this.dataColumnKanaban()?.titleColumn;
    // Add new data
-    this.newData.update(data=>({
-      titleColumn:title,
-      id:index,
+    this.newData.set({
+      titleColumn:this.dataColumnKanaban()?.titleColumn,
+      id:this.dataColumnKanaban()?.id,
       card:event?.card
-    }))
-    this.updateColumnKanaban.emit(this.newData())
+    })
+    this.emitterUpdateColumnKanaban.emit(this.newData())
     this.updateColumn(this.newData().titleColumn!, this.newData().id, this.newData());
   }
 

@@ -3,7 +3,7 @@ import {CdkDragDrop, CdkDrag, CdkDropList, moveItemInArray} from '@angular/cdk/d
 import { NewKanbanColumnComponent } from "./newKanbanColumn/newKanbanColumn.component";
 import { ColumnKanban } from '../../_models/kanban';
 import {MatButtonModule} from '@angular/material/button';
-import { NewKanbanCardComponent } from "./newKanbanCard/newKanbanCard.component";
+
 
 @Component({
   selector: 'kanban',
@@ -17,6 +17,11 @@ export class KanbanComponent {
   arrayColumn:ColumnKanban[] =[]
   index?:number;
   counter = signal<number>(0);
+
+
+  constructor(){}
+
+
   // --- DRAG AND DOP --- //
   drop(event: CdkDragDrop<ColumnKanban[]>) {
     moveItemInArray(this.arrayColumn, event.previousIndex, event.currentIndex);
@@ -34,20 +39,18 @@ export class KanbanComponent {
   // --- CRUD COLUMN KANABAN --- //
   addNewKanabanColumn(){
     let kanbanColumn: ColumnKanban = new ColumnKanban();
-    // this.arrayColumn.length<0? kanbanColumn.index = 0 : kanbanColumn.index = this.arrayColumn.length;
-
     kanbanColumn.id = this.arrayColumn.length;
     kanbanColumn.id += 1;
+
     this.counter.set(kanbanColumn.id)
     kanbanColumn.titleColumn = "Untitle List " + this.counter();
-
     this.arrayColumn.push(kanbanColumn)
+
+    console.log(this.arrayColumn)
   }
 
   updateKanabanColumn(column:ColumnKanban){
-    // console.log(column);
     this.arrayColumn.find(col=>col.id === column.id)!.titleColumn = column.titleColumn
-    // console.log(this.arrayColumn);
   }
 
   removeKanabanColumn(id:any){

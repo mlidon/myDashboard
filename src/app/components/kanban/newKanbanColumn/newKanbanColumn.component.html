@@ -16,7 +16,6 @@
       }@else {
         <p class="col pt-2 pointer" (click)="isTitle.set(true)">
           {{dataColumnKanaban()?.titleColumn}}
-          <!-- {{dataColumnKanaban()?.titleColumn == null? "Untitle List" : dataColumnKanaban()?.titleColumn}} (click)="updateColumn(title! ,dataColumnKanaban()!.id!)"-->
         </p>
       }
 
@@ -37,7 +36,7 @@
     <div class="scroll-container">
       <!-- EDIT CARD -->
       <div div class="d-flex flex-column ">
-        <new-kanban-card [newData]="newData()"  (dataCardKanban)="updateCardsColumn($event)"></new-kanban-card>
+        <new-kanban-card [newData]="dataColumnKanaban()" [newColumns]=""  (dataCardKanban)="updateCardsColumn($event)"></new-kanban-card>
       </div>
     </div>
 </div>
