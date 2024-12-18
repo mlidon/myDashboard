@@ -10,7 +10,7 @@ import { MatInputModule } from '@angular/material/input';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MaterialTextAreaComponent implements OnInit{
-  titleLabel = input<string>('title');
+  titleLabel = input<string|null>(null);
   data = input<string|null>(null);
   emitterDescription = output<string|null>();
   description = signal<string|null>(null);

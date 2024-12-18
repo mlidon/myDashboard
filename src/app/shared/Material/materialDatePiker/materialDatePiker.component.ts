@@ -13,9 +13,9 @@ import { FormsModule } from '@angular/forms';
 })
 export class MaterialDatePikerComponent implements OnInit{
 
-  titleLabel = input<string>('Piker');
+  titleLabel = input<string|null>(null);
   data = input< Date>(new Date());
-  emmiterDatePikerSelected = output<Date|null>();
+  emitterDatePikerSelected = output<Date|null>();
   dateSelected = signal<Date>(new Date());
 
 
@@ -31,7 +31,7 @@ export class MaterialDatePikerComponent implements OnInit{
     typeof value === 'string'? dateValue = new Date(value):dateValue = value;
 
     this.dateSelected.set(dateValue);
-    this.emmiterDatePikerSelected.emit(dateValue)
+    this.emitterDatePikerSelected.emit(dateValue)
 }
 
 

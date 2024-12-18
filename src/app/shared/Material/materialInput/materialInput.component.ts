@@ -12,18 +12,20 @@ import {FormsModule} from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MaterialInputComponent implements OnInit{
-  titleLabel = input<string>('Add title card');
-  title = signal<string|null>(null);
+  titleLabel = input<string|null>(null);
   data = input<string|null>(null);
+  classInput =input<string|null>(null);
+  title = signal<string|null>(null);
   emitterTitle = output<string|null>();
-
 
   ngOnInit(): void {
     this.title.set(this.data())
   }
 
   getTitle(value:string){
-    this.title.set(value);
-    this.emitterTitle.emit(value)
+    if(value){
+      this.title.set(value);
+      this.emitterTitle.emit(value)
+    }
   }
 }

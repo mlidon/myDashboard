@@ -1,0 +1,32 @@
+<header class="d-flex justify-content-between align-content-center px-3 pt-3">
+  @if(data.id != -1){<p mat-dialog-title class="title-cards">Edit Task List</p>}
+  @else{<p mat-dialog-title class="title-cards">Create Task List</p>}
+  <material-icon-button nameIcon="close"
+                        classColorIcon="white"
+                        classButton="bgBlue"
+                        (emitterIsClicked)="cancel()">
+  </material-icon-button>
+</header>
+<hr>
+<div class="px-4">
+  <section>
+    <!-- INPUT -->
+    <p>Title task</p>
+    <material-input titleLabel="Add Title Task" classInput="w-100" [data]="titleTask()" (emitterTitle)="getTitleTask($event)"></material-input>
+    <!-- TEXT AREA -->
+    <p>Description</p>
+    <material-text-area titleLabel="Desciption Task" [data]="descriptionTask()" (emitterDescription)="getDescriptionTask($event)"></material-text-area>
+    <!-- DATE PICKEER -->
+    <p>Start Date</p>
+    <material-date-piker titleLabel="Add new date" [data]="dateStartTask()" (emitterDatePikerSelected)="getDateTask($event)"></material-date-piker>
+
+    <p>Add Team Member</p>
+    <material-input-with-chips titleLabel="Members" classInput="w-100" (emitterMembers)="getMembers($event)" [members]="memberTask()"></material-input-with-chips>
+  </section>
+</div>
+
+
+  <footer class="d-flex justify-content-end align-content-center sticky-bottom p-3 bg-white">
+    <material-button-flat [disabled]="false" classButton="bgRed mx-3" nameButton="Cancel" (EmmitterisClick)="cancel()"></material-button-flat>
+    <material-button-flat [disabled]="idDisabledButtonAccept()" [classButton]="classBtnAccept()" nameButton="Accept" (EmmitterisClick)="accept()"></material-button-flat>
+  </footer>

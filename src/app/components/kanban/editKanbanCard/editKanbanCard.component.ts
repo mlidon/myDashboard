@@ -11,7 +11,6 @@ import { MaterialProgressComponent } from '../../../shared/Material/materialProg
 import { MaterialTaskListComponent } from "../../../shared/Material/materialTaskList/materialTaskList.component";
 import { MaterialInputComponent } from "../../../shared/Material/materialInput/materialInput.component";
 import { FormsModule } from '@angular/forms';
-import { ModalEdit } from '../../../_models/modals';
 import { UsersService } from '../../../_services/Users.service';
 import { Users } from '../../../_models/users';
 import { MaterialAutocompleteComponent } from "../../../shared/Material/materialAutocomplete/materialAutocomplete.component";

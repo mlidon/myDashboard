@@ -20,7 +20,7 @@ const TREE_DATA: MenuSideNav[]=[
     children:[
       {name:'Blog',icon:'comment',url:''},
       {name:'Kanban',icon:'view_kanban',url:'/kanban'},
-      {name:'Task List',icon:'checklist',url:''}]
+      {name:'Task List',icon:'checklist',url:'/task-list'}]
   },
   {
     name:'Ui kit',icon:'architecture',
