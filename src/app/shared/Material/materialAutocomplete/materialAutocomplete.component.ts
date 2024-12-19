@@ -40,7 +40,6 @@ export class MaterialAutocompleteComponent implements OnInit {
   }
 
   add(event: MatChipInputEvent): void {
-    console.log(event);
 
     // const value:Users = (event.value || '').trim();
 
@@ -61,7 +60,7 @@ export class MaterialAutocompleteComponent implements OnInit {
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
-    
+
 
     // this.Users.update(user => [...fruits, event.option.viewValue]);
     // this.currentFruit.set('');

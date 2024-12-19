@@ -2,11 +2,11 @@ import { ChangeDetectionStrategy, Component, input, OnInit, output, signal } fro
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule} from '@angular/forms';
-
+import {MatIconModule} from '@angular/material/icon';
 
 @Component({
   selector: 'material-input',
-  imports: [MatInputModule,MatFormFieldModule,FormsModule],
+  imports: [MatInputModule,MatFormFieldModule,FormsModule,MatIconModule],
   templateUrl: './materialInput.component.html',
   styleUrl: './materialInput.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -14,6 +14,7 @@ import {FormsModule} from '@angular/forms';
 export class MaterialInputComponent implements OnInit{
   titleLabel = input<string|null>(null);
   data = input<string|null>(null);
+  inputIcon=input<string|null>(null);
   classInput =input<string|null>(null);
   title = signal<string|null>(null);
   emitterTitle = output<string|null>();
@@ -26,6 +27,8 @@ export class MaterialInputComponent implements OnInit{
     if(value){
       this.title.set(value);
       this.emitterTitle.emit(value)
+    }else{
+      this.emitterTitle.emit('');
     }
   }
 }

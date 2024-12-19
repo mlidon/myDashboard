@@ -5,15 +5,17 @@ import { DashboardEcomerceComponent } from './components/dashboard-ecomerce/dash
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { KanbanComponent } from './components/kanban/kanban.component';
 import { TaskListComponent } from './components/TaskList/TaskList.component';
+import { ChatComponent } from './components/chat/chat.component';
 
 export const routes: Routes = [
   {path:'',component:DashboardLayoutComponent,
     children:[
       {path:'',component:WelcomeComponent},
-      {path:'bank',component:DashboardBankComponent},
-      {path:'ecommerce',component:DashboardEcomerceComponent},
-      {path:'kanban',component:KanbanComponent},
-      {path:'task-list',component:TaskListComponent},
+      {path:'dashboard/bank',component:DashboardBankComponent},
+      {path:'app/chat',component:ChatComponent},
+      {path:'dashboard/ecommerce',component:DashboardEcomerceComponent},
+      {path:'app/kanban',component:KanbanComponent},
+      {path:'app/task-list',component:TaskListComponent},
     ]
   }
 

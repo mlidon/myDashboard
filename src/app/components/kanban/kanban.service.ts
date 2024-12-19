@@ -16,7 +16,6 @@ export class KanbanService {
   //Obtener las cards
   getCardsByColumns(column:CardKanban[]){
     this.arrayByColumns.next(column);
-    console.log("Service",column);
 
   }
 

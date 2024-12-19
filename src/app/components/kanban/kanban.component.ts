@@ -26,7 +26,6 @@ export class KanbanComponent {
   drop(event: CdkDragDrop<ColumnKanban[]>) {
     moveItemInArray(this.arrayColumn, event.previousIndex, event.currentIndex);
     this.updateIndex();
-    // console.log(this.arrayColumn);
   }
 
   updateIndex(){
@@ -45,8 +44,6 @@ export class KanbanComponent {
     this.counter.set(kanbanColumn.id)
     kanbanColumn.titleColumn = "Untitle List " + this.counter();
     this.arrayColumn.push(kanbanColumn)
-
-    console.log(this.arrayColumn)
   }
 
   updateKanabanColumn(column:ColumnKanban){

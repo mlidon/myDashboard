@@ -54,12 +54,9 @@ export class TaskListComponent implements OnInit{
     }else{
       this.arrayTaskToDo.update(arr=>[...arr]);
     }
-    console.log(task.id);
   }
 
   taskChecked(event:MatCheckboxChange,task:ModalListTask){
-    console.log(event);
-
     if(event.checked){
       task.checked=true;
       this.arrayTaskComplete.update(arr=>[...arr,task]);

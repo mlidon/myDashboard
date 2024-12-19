@@ -55,7 +55,6 @@ export class NewKanbanColumnComponent{
   }
 
   updateCardsColumn(event?:ColumnKanban){
-    //console.log("Update cards into column",event);
 
    // Add new data
     this.newData.set({

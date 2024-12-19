@@ -1,0 +1,17 @@
+<material-card>
+  <div materialCardBody>
+    <div class="row w-100 gx-2">
+      <div class="col-3" >
+          <!-- <div [class]="colorState()"></div> -->
+          <img  [src]="inputUser().img" width="80px" height="80px " class="mt-2" style="object-fit:cover; border-radius: 50%; object-position: top; box-shadow: 1px 1px 5px rgb(0, 0, 0);" alt="">
+      </div>
+      <div class="col ms-3 pt-3 text-start" >
+        <p><strong>{{inputUser().name}}</strong><br>
+          {{inputUser().description}}</p>
+      </div>
+
+    </div>
+
+    <div [class]="colorState()"></div>
+  </div>
+</material-card>

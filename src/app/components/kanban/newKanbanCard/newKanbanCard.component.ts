@@ -31,15 +31,12 @@ export class NewKanbanCardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("ID",this.newData()?.id);
-
   }
 
   // --- DRAG AND DOP --- //
   drop(event: CdkDragDrop<CardKanban[]>) {
     moveItemInArray(this.arrayCard, event.previousIndex, event.currentIndex);
     this.updateIndex();
-    // console.log(this.arrayCard);
   }
 
   updateIndex(){
@@ -67,7 +64,6 @@ export class NewKanbanCardComponent implements OnInit {
 
   updateEditCard(editCard:CardKanban){
     let index = this.arrayCard.findIndex(element=>element.id === editCard.id)
-    console.log(this.arrayCard);
     this.arrayCard[index] = editCard;
     this.newData()!.card = this.arrayCard;
     this.dataCardKanban.emit(this.newData()!);
@@ -87,7 +83,6 @@ export class NewKanbanCardComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
       this.updateEditCard(result!);
 
     });

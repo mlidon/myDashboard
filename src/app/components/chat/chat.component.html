@@ -1,0 +1,59 @@
+
+
+<p>chat works!</p>
+<div class="container-fluid">
+<div class="row">
+
+
+  <!-- LADO IZQUIERDO -->
+  <material-card class="col-12 col-md-4 mb-4" title="Max" [isNeedActions] = true
+                 classGeneral ="text-center"
+                 classHeader="d-flex flex-column justify-content-center align-content-center w-100">
+
+    <div materialCardHeader>
+        <img src="https://i.pinimg.com/736x/23/2a/db/232adbea0de3524d6d0068bb8c3779cf.jpg" width="150px" height="150px " class="mt-2"
+        style="object-fit:cover; border-radius: 50%; object-position: top;" alt="">
+        <hr>
+    </div>
+
+    <div materialCardBody>
+      <!-- Search -->
+      <material-input classInput="w-100" titleLabel="Search" inputIcon="search" (emitterTitle)="getInputSearch($event)" ></material-input>
+      <!-- Card-Users -->
+       @for(user of filteredUsers();track user){
+        @if(user.id != 1){
+          <card-users @userAnimation class="m-3" [inputUser]="user"></card-users>
+        }
+      }
+    </div>
+    <!-- Card Action -->
+    <div materialCardActions></div>
+
+  </material-card>
+
+  <!-- LADO DERECHO -->
+  <material-card class="col-12 col-md">
+
+    <div materialCardHeader>
+      Esto es el header
+    </div>
+    <div materialCardBody>
+      Input buscador
+
+      <div>
+        imagen a la izquierda
+        En el centro nombre y mensajigo debajo
+        al final el numero de dias.
+      </div>
+
+    </div>
+
+    <div materialCardActions>
+        Action of other material Card
+    </div>
+
+  </material-card>
+
+
+</div>
+</div>

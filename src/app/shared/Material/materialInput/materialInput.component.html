@@ -3,4 +3,7 @@
   <input matInput type="text"
         [ngModel]="title()"
         (ngModelChange)="getTitle($event)">
+        @if(inputIcon()!=null){
+          <mat-icon matSuffix>{{inputIcon()}}</mat-icon>
+        }
 </mat-form-field>

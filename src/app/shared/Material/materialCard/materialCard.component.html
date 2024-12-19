@@ -1,0 +1,20 @@
+<mat-card [appearance]="apparence()" [class]="classGeneral()">
+  <mat-card-header [class]="classHeader()">
+
+    <mat-card-title>{{title()}}</mat-card-title>
+    <mat-card-subtitle>{{subtitle()}}</mat-card-subtitle>
+
+    <ng-content select="[materialCardHeader]"></ng-content>
+
+  </mat-card-header>
+
+  <mat-card-content [class]="classBody()">
+    <ng-content select="[materialCardBody]"></ng-content>
+
+  </mat-card-content>
+  @if(isNeedActions()){
+  <mat-card-actions [class]="classAction()">
+    <ng-content select="[materialCardActions]"></ng-content>
+  </mat-card-actions>
+  }
+</mat-card>

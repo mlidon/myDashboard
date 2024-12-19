@@ -12,15 +12,16 @@ import { filter } from 'rxjs';
 const TREE_DATA: MenuSideNav[]=[
   {
     name:'Dashboard',icon:'grid_view',
-    children:[{name:'Ecommerce',icon:'shopping_cart',url:'/ecommerce'},
-              {name:'Bank',icon:'account_balance',url:'/bank'}]
+    children:[{name:'Ecommerce',icon:'shopping_cart',url:'dashboard/ecommerce'},
+              {name:'Bank',icon:'account_balance',url:'dashboard/bank'}]
   },
   {
     name:'App',icon:'devices',
     children:[
       {name:'Blog',icon:'comment',url:''},
-      {name:'Kanban',icon:'view_kanban',url:'/kanban'},
-      {name:'Task List',icon:'checklist',url:'/task-list'}]
+      {name:'Chat',icon:'chat',url:'app/chat'},
+      {name:'Kanban',icon:'view_kanban',url:'app/kanban'},
+      {name:'Task List',icon:'checklist',url:'app/task-list'}]
   },
   {
     name:'Ui kit',icon:'architecture',

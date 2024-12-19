@@ -99,7 +99,6 @@ export class EditKanbanCardComponent implements OnInit{
   }
 
   setTaskList(value:any){
-    console.log(value);
 
   }
 
