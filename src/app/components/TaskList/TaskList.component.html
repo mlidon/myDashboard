@@ -5,41 +5,30 @@
   <mat-card class="p-5 bg-white">
     <mat-card-header >
       <header class="d-flex justify-content-between w-100 mb-5">
-        <p class="title-cards">Task List</p>
+        <p class="title-cards">TO DO</p>
         <material-button-flat [disabled]="false" [nameButton]="nameButton" (EmmitterisClick)="clickedNewTask($event)"></material-button-flat>
       </header>
     </mat-card-header>
+    <!-- TO DO  -->
     <mat-card-content>
-
       <table class="table">
         <thead>
           <tr class="row">
-            <td><h5>TO DO</h5></td>
-            <!-- @for(head of headerTable;track head; ){
+            @for(head of headerTable;track head; ){
               <th [class]="head.col">{{head.title}}</th>
-            } -->
+            }
           </tr>
         </thead>
         <tbody >
-          <tr class="row">
-            <td class="col-2"><mat-checkbox [checked]="task?.checked">aa</mat-checkbox></td>
-            <td class="col">aa</td>
-            <td class="col-2">aa</td>
-            <td class="col"> aa </td>
-            <td class="col-1 d-flex justify-content-between align-content-center">
-              <material-icon-button nameIcon="edit" classColorIcon="white" classButton="bgOrange"></material-icon-button>
-              <material-icon-button nameIcon="delete" classColorIcon="white" classButton="bgRed"></material-icon-button>
-            </td>
-          </tr>
           @for(task of arrayTaskToDo();track task; let i = $index ){
             <tr class="row">
-              <td class="col-2"><mat-checkbox [checked]="task?.checked">{{task.title}}</mat-checkbox></td>
-              <td class="col">{{task.description}}</td>
-              <td class="col-2">{{task.startDate |date:'dd/MM/yyyy'}}</td>
+              <td class="col-2"><mat-checkbox [checked]="task?.checked" (change)="taskChecked($event,task)">{{task.title}}</mat-checkbox></td>
+              <td class="col pt-3">{{task.description}}</td>
+              <td class="col-2 pt-3">{{task.startDate |date:'dd/MM/yyyy'}}</td>
               <td class="col">  @for(member of task.members;track member){ <mat-chip>{{member.name}}</mat-chip> &nbsp;} </td>
               <td class="col-1 d-flex justify-content-between align-content-center">
-                <material-icon-button nameIcon="edit" classColorIcon="white" classButton="bgOrange" (emitterIsClicked)="editTask(task)"></material-icon-button>
-                <material-icon-button nameIcon="delete" classColorIcon="white" classButton="bgRed" (emitterIsClicked)="deleteTask(task,i)"></material-icon-button>
+                <material-icon-button nameIcon="edit" classColorIcon="blue"  (emitterIsClicked)="editTask(task)"></material-icon-button>
+                <material-icon-button nameIcon="delete" classColorIcon="rgb(168, 44, 44)" (emitterIsClicked)="deleteTask($event,task)"></material-icon-button>
               </td>
             </tr>
           }
@@ -50,7 +39,7 @@
   </mat-card>
 
   <br>
-
+  <!-- TO COMPLETE -->
   <mat-card class="p-5 bg-white">
     <mat-card-content>
       <table class="table">
@@ -59,8 +48,19 @@
             <th><h5>COMPLETE</h5></th>
           </tr>
         </thead>
-        <tbody >
-
+        <tbody>
+          @for(task of arrayTaskComplete();track task; let i = $index ){
+            <tr class="row">
+              <td class="col-2 row-complete"><mat-checkbox [checked]="task?.checked" (change)="taskChecked($event,task)"><span class="strikethrough">{{task.title}}</span></mat-checkbox></td>
+              <td class="col pt-3 strikethrough row-complete">{{task.description}}</td>
+              <td class="col-2 pt-3 row-complete" >{{task.startDate |date:'dd/MM/yyyy'}}</td>
+              <td class="col row-complete">@for(member of task.members;track member){ <mat-chip>{{member.name}}</mat-chip> &nbsp;} </td>
+              <td class="col-1 d-flex justify-content-between align-content-center row-complete">
+                <material-icon-button nameIcon="edit" classColorIcon="blue" (emitterIsClicked)="editTask(task)"></material-icon-button>
+                <material-icon-button nameIcon="delete" classColorIcon="rgb(168, 44, 44)" (emitterIsClicked)="deleteTask($event,task)"></material-icon-button>
+              </td>
+            </tr>
+          }
         </tbody>
       </table>
     </mat-card-content>

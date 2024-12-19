@@ -35,6 +35,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   cursor:move;
 }
 
+.strikethrough{text-decoration: line-through;}
+.none-strikethrough{text-decoration: none;}
+.iconWhite{color: white;}
 .iconGrey{color: grey;}
 .iconRed{color: rgb(168, 44, 44)!important;}
 .iconGreen{color: rgb(24, 120, 36)!important;}

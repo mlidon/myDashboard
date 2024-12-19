@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from '@angular/core';
 import { MatCardModule} from '@angular/material/card';
 import { MaterialButtonFlatComponent } from "../../shared/Material/materialButtonFlat/materialButtonFlat.component";
-import { ModalListTask } from '../../_models/modals';
+import { ModalListTask, People } from '../../_models/modals';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalListTaskComponent } from './modalListTask/modalListTask.component';
 import { DatePipe } from '@angular/common';
 import { MaterialIconButtonComponent } from "../../shared/Material/materialIconButton/materialIconButton.component";
-import { MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxChange, MatCheckboxModule} from '@angular/material/checkbox';
 import {MatChipsModule} from '@angular/material/chips';
 
 @Component({
@@ -19,14 +19,23 @@ import {MatChipsModule} from '@angular/material/chips';
 export class TaskListComponent implements OnInit{
 
   readonly dialog = inject(MatDialog);
-  headerTable:any[]=[{title:"Title",col:"col-2"},{title:"Description",col:"col"},{title:"Date",col:"col-2"},{title:"Members",col:"col"},{title:"Actions",col:"col-1"}]
+  headerTable:any[]=[{title:"Task",col:"col-2"},{title:"Description",col:"col"},{title:"Date",col:"col-2"},{title:"Members",col:"col"},{title:"Actions",col:"col-1"}]
   nameButton:string="+ Create Task";
-  arrayTaskToDo = signal<ModalListTask[]>([]);
-  arrayTaskComplete:ModalListTask[]=[];
   task?:ModalListTask;
   currentId = signal<number>(0);
   incremental: number = 1;
+  arrayTaskToDo = signal<ModalListTask[]>([
+    {id:1500,checked:false, title:"app development",description:"Development of the to do application", startDate:new Date(),members:[{name:"Marc"},{name:"Nat"}]},
+    {id:1501,checked:false, title:"Repair the server",description:"Install new ventilation system and update software", startDate:new Date(),members:[{name:"Vincen"},{name:"Monick"}]},
+  ]);
+  arrayTaskComplete=signal<ModalListTask[]>([
+    {id:1502,checked:true, title:"Buy",description:"Buy more Roma coffee that has been finished", startDate:new Date(),members:[{name:"Michel"},{name:"Patrick"}]}
+  ]);
+  exempleTodoList:ModalListTask[]=[
 
+  ]
+  exempleMembers1:People[]=[{name:"Marc"},{name:"Nat"}]
+  exempleMembers2:People[]=[{name:"Michel"},{name:"Patrick"}]
   ngOnInit(): void {
 
   }
@@ -48,14 +57,41 @@ export class TaskListComponent implements OnInit{
     console.log(task.id);
   }
 
+  taskChecked(event:MatCheckboxChange,task:ModalListTask){
+    console.log(event);
+
+    if(event.checked){
+      task.checked=true;
+      this.arrayTaskComplete.update(arr=>[...arr,task]);
+      this.UpdateTasks(task);
+    }else{
+      task.checked=false;
+      this.arrayTaskToDo.update(arr=>[...arr,task]);
+      this.UpdateTasks(task);
+    }
+  }
 
 
   editTask(task:ModalListTask){
     this.openModalListTask(task);
   }
 
-  deleteTask(task:ModalListTask,index:number){
-    this.arrayTaskToDo.update(arr=>arr.filter(item=>item !== task))
+  UpdateTasks(task:ModalListTask){
+    if(task.checked){
+      this.arrayTaskToDo.update(arr=>arr.filter(item=>item !== task));
+    }else{
+      this.arrayTaskComplete.update(arr=>arr.filter(item=>item !==task));
+    }
+  }
+
+  deleteTask(event:any,task:ModalListTask){
+      if(event){
+        if(task.checked === true){
+          this.arrayTaskComplete.update(arr=>arr.filter(item=>item !==task));
+        }else{
+          this.arrayTaskToDo.update(arr=>arr.filter(item=>item !== task));
+        }
+      }
   }
 
   // --- MODALS --- //
