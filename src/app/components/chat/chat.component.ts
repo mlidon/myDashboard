@@ -49,7 +49,6 @@ export class ChatComponent implements OnInit{
         this.users.set(resp);
       })
     })
-
     this.userChatSelected.set(this.users()[1]);
   }
 

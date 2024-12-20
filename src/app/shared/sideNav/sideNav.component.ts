@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, ViewChild} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, OnInit, signal, ViewChild} from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
 import {MatSidenav, MatSidenavModule} from '@angular/material/sidenav';
 import {MatButtonModule} from '@angular/material/button';
@@ -24,11 +24,14 @@ import { PictureUserComponent } from '../pictureUser/pictureUser.component';
   styleUrl: './sideNav.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SideNavComponent {
+export class SideNavComponent implements OnInit {
 
   mobileQuery!: MediaQueryList;
 
   private _mobileQueryListener: () => void;
+  currentTime=signal<string>('');
+
+
 
   constructor() {
     const changeDetectorRef = inject(ChangeDetectorRef);
@@ -37,6 +40,18 @@ export class SideNavComponent {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
 
+  }
+
+  ngOnInit(): void {
+    setInterval(() => {
+      this.updateTime();
+    }, 1000);
+  }
+
+   // Test
+   updateTime() {
+    const now = new Date();
+    this.currentTime.set(now.toLocaleTimeString());
   }
 
 }

@@ -1,7 +1,14 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
-  <mat-toolbar class="example-toolbar">
-    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-    <h1 class="example-app-name">Responsive App</h1>
+  <mat-toolbar class="d-flex flex-row justify-content-between example-toolbar">
+    <div class="d-flex align-content-center">
+      <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+      <h1 class="pt-1 example-app-name">Responsive App</h1>
+    </div>
+
+    <div class="digital-clock me-2">
+      {{currentTime()}}
+    </div>
+
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
@@ -16,5 +23,8 @@
       <ng-content #contenido></ng-content>
     </mat-sidenav-content>
   </mat-sidenav-container>
+
 </div>
+
+
 
