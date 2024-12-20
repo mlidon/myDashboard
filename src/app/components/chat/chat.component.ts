@@ -6,9 +6,10 @@ import { CardUsersComponent } from "./cardUsers/cardUsers.component";
 import { UsersService } from '../../_services/Users.service';
 import { Users } from '../../_models/users';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { ChatEditorComponent } from "./chatEditor/chatEditor.component";
 @Component({
   selector: 'app-chat',
-  imports: [MaterialCardComponent, MaterialInputComponent, MatBadgeModule, CardUsersComponent],
+  imports: [MaterialCardComponent, MaterialInputComponent, MatBadgeModule, CardUsersComponent, ChatEditorComponent],
   templateUrl: './chat.component.html',
   styleUrl: './chat.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -26,8 +27,9 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
   ]
 })
 export class ChatComponent implements OnInit{
-  users = signal<Users[]>([])
-  search = signal<string>('')
+  users = signal<Users[]>([]);
+  userChatSelected = signal<Users>({});
+  search = signal<string>('');
 
   filteredUsers = computed(() => {
     const searchTerm = this.search()?.toLowerCase().trim();
@@ -47,9 +49,15 @@ export class ChatComponent implements OnInit{
         this.users.set(resp);
       })
     })
+
+    this.userChatSelected.set(this.users()[1]);
   }
 
   getInputSearch(event:any){
      this.search.set(event||'');
+  }
+
+  userSelected(user:Users){
+    this.userChatSelected.set(user);
   }
 }

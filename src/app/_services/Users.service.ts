@@ -15,28 +15,46 @@ export class UsersService {
       img:'https://i.pinimg.com/736x/23/2a/db/232adbea0de3524d6d0068bb8c3779cf.jpg',
       position:'Management',
       description:"I'm ready for anything",
-      state:1
+      state:1,
+      chat:[
+        {userId:2,date:new Date('20/12/2024'),message:'Hi Luna! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi quos sed beatae aliquam mollitia doloremque enim blanditiis magni voluptate iusto esse fugiat incidunt vitae cum vel, omnis odit doloribus deserunt.' },
+        {userId:3,date:new Date('20/12/2024'),message:'Hi Rocky! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi quos sed beatae aliquam mollitia doloremque enim blanditiis magni voluptate iusto esse fugiat incidunt vitae cum vel, omnis odit doloribus deserunt.' },
+        {userId:4,date:new Date('20/12/2024'),message:'Hi Toby! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi quos sed beatae aliquam mollitia doloremque enim blanditiis magni voluptate iusto esse fugiat incidunt vitae cum vel, omnis odit doloribus deserunt.' },
+        {userId:5,date:new Date('20/12/2024'),message:'Hi Nala! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi quos sed beatae aliquam mollitia doloremque enim blanditiis magni voluptate iusto esse fugiat incidunt vitae cum vel, omnis odit doloribus deserunt.' },
+      ]
     },
     {
       id:2,name:'Luna',
       img:'https://i.pinimg.com/736x/bb/f1/6e/bbf16ee0bdb05480942c5618e698520f.jpg',
       position:'Comercial',
       description:"I love playing with my bone",
-      state:2
+      state:2,
+      chat:[
+        {userId:1,date:new Date('19/12/2024'),message:'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi quos sed beatae aliquam mollitia doloremque enim blanditiis magni voluptate iusto esse fugiat incidunt vitae cum vel, omnis odit doloribus deserunt.' },
+        {userId:1,date:new Date('20/12/2024'),message:'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi quos sed beatae aliquam mollitia doloremque enim blanditiis magni voluptate iusto esse fugiat incidunt vitae cum vel, omnis odit doloribus deserunt.' }
+      ]
     },
     {
       id:3,name:'Rocky',
       img:'https://i.pinimg.com/736x/f8/e2/cf/f8e2cf014adb8640bf54603e5d7abe17.jpg',
       position:'Sales',
       description:"If you look for me, you will find me.",
-      state:1
+      state:1,
+      chat:[
+        {userId:1,date:new Date('19/12/2024'),message:'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi quos sed beatae aliquam mollitia doloremque enim blanditiis magni voluptate iusto esse fugiat incidunt vitae cum vel, omnis odit doloribus deserunt.' },
+        {userId:1,date:new Date('20/12/2024'),message:'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi quos sed beatae aliquam mollitia doloremque enim blanditiis magni voluptate iusto esse fugiat incidunt vitae cum vel, omnis odit doloribus deserunt.' }
+      ]
     },
     {
       id:4,name:'Toby',
       img:'https://i.pinimg.com/736x/d8/7a/39/d87a393339da2834a791934a1232a0e1.jpg',
       position:'Procurement',
       description:"I will always listen to you",
-      state:2
+      state:2,
+      chat:[
+        {userId:1,date:new Date('19/12/2024'),message:'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi quos sed beatae aliquam mollitia doloremque enim blanditiis magni voluptate iusto esse fugiat incidunt vitae cum vel, omnis odit doloribus deserunt.' },
+        {userId:1,date:new Date('20/12/2024'),message:'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi quos sed beatae aliquam mollitia doloremque enim blanditiis magni voluptate iusto esse fugiat incidunt vitae cum vel, omnis odit doloribus deserunt.' }
+      ]
 
     },
     {
@@ -44,7 +62,11 @@ export class UsersService {
       img:'https://i.pinimg.com/736x/32/b5/7a/32b57a8842aa0a8a8361cc9a785dba6b.jpg',
       position:'Acounting',
       description:"If you ask about me, I'm not here.",
-      state:0
+      state:0,
+      chat:[
+        {userId:1,date:new Date('19/12/2024'),message:'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi quos sed beatae aliquam mollitia doloremque enim blanditiis magni voluptate iusto esse fugiat incidunt vitae cum vel, omnis odit doloribus deserunt.' },
+        {userId:1,date:new Date('20/12/2024'),message:'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi quos sed beatae aliquam mollitia doloremque enim blanditiis magni voluptate iusto esse fugiat incidunt vitae cum vel, omnis odit doloribus deserunt.' }
+      ]
 
     }
   ])

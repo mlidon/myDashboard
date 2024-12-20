@@ -19,8 +19,10 @@ export class MaterialInputComponent implements OnInit{
   title = signal<string|null>(null);
   emitterTitle = output<string|null>();
 
+
   ngOnInit(): void {
-    this.title.set(this.data())
+    this.title.set(this.data());
+
   }
 
   getTitle(value:string){
@@ -31,4 +33,7 @@ export class MaterialInputComponent implements OnInit{
       this.emitterTitle.emit('');
     }
   }
+
+
+
 }

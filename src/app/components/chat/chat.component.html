@@ -2,58 +2,162 @@
 
 <p>chat works!</p>
 <div class="container-fluid">
-<div class="row">
+  <div class="row">
 
 
-  <!-- LADO IZQUIERDO -->
-  <material-card class="col-12 col-md-4 mb-4" title="Max" [isNeedActions] = true
-                 classGeneral ="text-center"
-                 classHeader="d-flex flex-column justify-content-center align-content-center w-100">
-
-    <div materialCardHeader>
-        <img src="https://i.pinimg.com/736x/23/2a/db/232adbea0de3524d6d0068bb8c3779cf.jpg" width="150px" height="150px " class="mt-2"
-        style="object-fit:cover; border-radius: 50%; object-position: top;" alt="">
-        <hr>
-    </div>
-
-    <div materialCardBody>
-      <!-- Search -->
-      <material-input classInput="w-100" titleLabel="Search" inputIcon="search" (emitterTitle)="getInputSearch($event)" ></material-input>
-      <!-- Card-Users -->
-       @for(user of filteredUsers();track user){
-        @if(user.id != 1){
-          <card-users @userAnimation class="m-3" [inputUser]="user"></card-users>
-        }
-      }
-    </div>
-    <!-- Card Action -->
-    <div materialCardActions></div>
-
-  </material-card>
-
-  <!-- LADO DERECHO -->
-  <material-card class="col-12 col-md">
-
-    <div materialCardHeader>
-      Esto es el header
-    </div>
-    <div materialCardBody>
-      Input buscador
-
-      <div>
-        imagen a la izquierda
-        En el centro nombre y mensajigo debajo
-        al final el numero de dias.
+    <!-- CARD LEFT -->
+    <material-card class="col-12 col-md-4 mb-4" title="Max" [isNeedActions] = true
+                  classGeneral ="text-center"
+                  classHeader="d-flex flex-column justify-content-center align-content-center w-100">
+      <!-- HEADER CARD -->
+      <div materialCardHeader>
+          <img [src]="users()[0].img" width="150px" height="150px " class="mt-2"
+          style="object-fit:cover; border-radius: 50%; object-position: top;" alt="">
+          <hr>
       </div>
+      <!-- BODY CARD -->
+      <div materialCardBody>
+        <!-- Search -->
+        <material-input classInput="w-100" titleLabel="Search" inputIcon="search" (emitterTitle)="getInputSearch($event)" ></material-input>
+        <!-- Card-Users -->
+        @for(user of filteredUsers();track user){
+          @if(user.id != 1){
+            <card-users @userAnimation class="m-3 pointer" [inputUser]="user" (click)="userSelected(user)"></card-users>
+          }
+        }
+      </div>
+      <!-- ACTION CARD -->
+      <div materialCardActions></div>
+
+    </material-card>
+    <!-- CARD RIGHT -->
+    <chat-editor [inputUsers]="users()" [inputUserSelected]="userChatSelected()" class="col-12 col-md"></chat-editor>
+  </div>
+</div>
+<!--
+ <material-card class="col-12 col-md" [isNeedActions] = true>
+
+    <div materialCardHeader class="w-100">
+      <div class="d-flex flex-row justify-content-start align-content-center p-2 m-3">
+
+        <div class="me-3">
+          <img  [src]="users()[1].img" width="80px" height="80px " class="mt-2" style="object-fit:cover; border-radius: 50%; object-position: top; box-shadow: 1px 1px 5px rgb(0, 0, 0);" alt="">
+        </div>
+
+        <div class="pt-3 me-1">
+          <p><strong>{{users()[1].name}}</strong><br>
+            {{users()[1].description}}</p>
+        </div>
+      </div>
+      <div class="trafic-light-orange col  postion-header-state-light-chat"></div>
+      <hr>
+    </div>
+
+    <div materialCardBody class="mx-4 scroll overflow-hidden overflow-y-scroll" style="max-height: 600px;">
+      <section>
+        <div class="d-flex align-content-center">
+          <div>
+            <img  [src]="users()[1].img" width="50px" height="50px " class="mt-2" style="object-fit:cover; border-radius: 50%; object-position: top; box-shadow: 1px 1px 5px rgb(0, 0, 0);" alt="">
+          </div>
+          <div class="mx-5 p-1">
+            <p class="box-chat"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi quos sed beatae aliquam mollitia doloremque enim blanditiis magni voluptate iusto esse fugiat incidunt vitae cum vel, omnis odit doloribus deserunt.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="d-flex justify-content-end">
+          <div class="mx-5 p-1">
+            <p class="box-chat-me "> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi quos sed beatae aliquam mollitia doloremque enim blanditiis magni voluptate iusto esse fugiat incidunt vitae cum vel, omnis odit doloribus deserunt.</p>
+          </div>
+          <div class="me-3">
+            <img  [src]="users()[0].img" width="50px" height="50px " class="mt-2" style="object-fit:cover; border-radius: 50%; object-position: top; box-shadow: 1px 1px 5px rgb(0, 0, 0);" alt="">
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="d-flex align-content-center">
+          <div>
+            <img  [src]="users()[1].img" width="50px" height="50px " class="mt-2" style="object-fit:cover; border-radius: 50%; object-position: top; box-shadow: 1px 1px 5px rgb(0, 0, 0);" alt="">
+          </div>
+          <div class="mx-5 p-1">
+            <p class="box-chat"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi quos sed beatae aliquam mollitia doloremque enim blanditiis magni voluptate iusto esse fugiat incidunt vitae cum vel, omnis odit doloribus deserunt.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="d-flex justify-content-end">
+          <div class="mx-5 p-1">
+            <p class="box-chat-me "> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi quos sed beatae aliquam mollitia doloremque enim blanditiis magni voluptate iusto esse fugiat incidunt vitae cum vel, omnis odit doloribus deserunt.</p>
+          </div>
+          <div class="me-3">
+            <img  [src]="users()[0].img" width="50px" height="50px " class="mt-2" style="object-fit:cover; border-radius: 50%; object-position: top; box-shadow: 1px 1px 5px rgb(0, 0, 0);" alt="">
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="d-flex align-content-center">
+          <div>
+            <img  [src]="users()[1].img" width="50px" height="50px " class="mt-2" style="object-fit:cover; border-radius: 50%; object-position: top; box-shadow: 1px 1px 5px rgb(0, 0, 0);" alt="">
+          </div>
+          <div class="mx-5 p-1">
+            <p class="box-chat"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi quos sed beatae aliquam mollitia doloremque enim blanditiis magni voluptate iusto esse fugiat incidunt vitae cum vel, omnis odit doloribus deserunt.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="d-flex justify-content-end">
+          <div class="mx-5 p-1">
+            <p class="box-chat-me "> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi quos sed beatae aliquam mollitia doloremque enim blanditiis magni voluptate iusto esse fugiat incidunt vitae cum vel, omnis odit doloribus deserunt.</p>
+          </div>
+          <div class="me-3">
+            <img  [src]="users()[0].img" width="50px" height="50px " class="mt-2" style="object-fit:cover; border-radius: 50%; object-position: top; box-shadow: 1px 1px 5px rgb(0, 0, 0);" alt="">
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="d-flex align-content-center">
+          <div>
+            <img  [src]="users()[1].img" width="50px" height="50px " class="mt-2" style="object-fit:cover; border-radius: 50%; object-position: top; box-shadow: 1px 1px 5px rgb(0, 0, 0);" alt="">
+          </div>
+          <div class="mx-5 p-1">
+            <p class="box-chat"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi quos sed beatae aliquam mollitia doloremque enim blanditiis magni voluptate iusto esse fugiat incidunt vitae cum vel, omnis odit doloribus deserunt.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="d-flex justify-content-end">
+          <div class="mx-5 p-1">
+            <p class="box-chat-me "> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi quos sed beatae aliquam mollitia doloremque enim blanditiis magni voluptate iusto esse fugiat incidunt vitae cum vel, omnis odit doloribus deserunt.</p>
+          </div>
+          <div class="me-3">
+            <img  [src]="users()[0].img" width="50px" height="50px " class="mt-2" style="object-fit:cover; border-radius: 50%; object-position: top; box-shadow: 1px 1px 5px rgb(0, 0, 0);" alt="">
+          </div>
+        </div>
+      </section>
 
     </div>
 
-    <div materialCardActions>
-        Action of other material Card
+    <div materialCardActions class="w-100 mx-2">
+      <hr>
+      <div class="row d-flex justify-content-start align-content-center w-100">
+         INPUT CHAT -->
+        <!-- <div class="col-8 col-md-10">
+          <material-input  titleLabel="Type a message" classInput="w-100"></material-input>
+        </div> -->
+        <!-- BUTTON SEND -->
+        <!-- <div class="col-4 col-md-2 align-baseline d-flex justify-content-end">
+          <material-button-flat  nameButton="Send" [isIcon]=true nameIcon="send" classButton="mt-1 py-4"></material-button-flat>
+        </div>
+      </div>
     </div>
 
   </material-card>
 
-
-</div>
-</div>
+-->

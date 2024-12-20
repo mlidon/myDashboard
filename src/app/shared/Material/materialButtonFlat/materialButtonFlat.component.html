@@ -1,3 +1,4 @@
 <button mat-flat-button [class]="classButton()" [disabled]="disabled()" (click)="isClicked()">
+  @if(isIcon()){<mat-icon>{{nameIcon()}}</mat-icon>}
   {{nameButton()}}
 </button>

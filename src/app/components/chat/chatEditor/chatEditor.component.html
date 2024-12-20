@@ -1,0 +1,69 @@
+<material-card [isNeedActions] = true>
+
+  <div materialCardHeader class="w-100">
+    <div class="d-flex flex-row justify-content-start align-content-center p-2 m-3">
+
+      <div class="me-3">
+        <img  [src]="inputUserSelected().img" width="80px" height="80px " class="mt-2" style="object-fit:cover; border-radius: 50%; object-position: top; box-shadow: 1px 1px 5px rgb(0, 0, 0);" alt="">
+      </div>
+
+      <div class="pt-3 me-1">
+        <p><strong>{{inputUserSelected().name}}</strong><br>
+          {{inputUserSelected().description}}</p>
+      </div>
+    </div>
+    <div class="trafic-light-orange col  postion-header-state-light-chat"></div>
+    <hr>
+  </div>
+
+  <div materialCardBody class="mx-4 scroll overflow-hidden overflow-y-scroll" style="max-height: 600px;">
+    <section>
+      @for(chat of inputUserSelected().chat; track chat){
+        @if(chat.userId === meUser().id){
+        <div class="d-flex align-content-center">
+          <div>
+            <img  [src]="inputUserSelected().img" width="50px" height="50px " class="mt-2" style="object-fit:cover; border-radius: 50%; object-position: top; box-shadow: 1px 1px 5px rgb(0, 0, 0);" alt="">
+          </div>
+          <div class="mx-5 p-1">
+            <p class="box-chat">{{chat.message}}</p>
+          </div>
+        </div>
+        }
+      }
+    </section>
+
+    <section>
+      @for(chat of meUser().chat; track chat){
+        @if(chat.userId === inputUserSelected().id){
+          <div class="d-flex justify-content-end">
+            <div class="mx-5 p-1">
+              <p class="box-chat-me ">{{chat.message}}</p>
+            </div>
+            <div class="me-3">
+              <img  [src]="meUser().img" width="50px" height="50px " class="mt-2" style="object-fit:cover; border-radius: 50%; object-position: top; box-shadow: 1px 1px 5px rgb(0, 0, 0);" alt="">
+            </div>
+          </div>
+        }
+      }
+    </section>
+
+  </div>
+
+  <div materialCardActions class="w-100 mx-2">
+    <hr>
+    <div class="row d-flex justify-content-start align-content-center w-100">
+      <!-- INPUT CHAT -->
+      <div class="col-8 col-md-10">
+        <material-input  titleLabel="Type a message" classInput="w-100" (emitterTitle)="getNewMessage($event)"></material-input>
+      </div>
+      <!-- BUTTON SEND -->
+      <div class="col-4 col-md-2 align-baseline d-flex justify-content-end">
+        <material-button-flat  nameButton="Send" [disabled]="isInputEmpty()"
+                                [isIcon]=true nameIcon="send"
+                                classButton="mt-1 py-4"
+                                (EmmitterisClick)="sendMessage($event)"></material-button-flat>
+      </div>
+    </div>
+  </div>
+
+</material-card>
