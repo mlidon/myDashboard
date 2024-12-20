@@ -1,6 +1,6 @@
-<mat-form-field appearance="outline" [class]="classInput()">
+<mat-form-field appearance="outline" [class]="classInput()" (click)="title.set('')">
   <mat-label>{{titleLabel()}}</mat-label>
-  <input matInput type="text" (blur)="title.set('')"
+  <input matInput type="text"
         [ngModel]="title()"
         (ngModelChange)="getTitle($event)">
         @if(inputIcon()!=null){
